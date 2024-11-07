@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    url      = env("POSTGRES_URL")
 }
 
 // Necessary for Next auth
@@ -47,11 +47,19 @@ model VerificationToken {
 
 // Necessary for Next auth
 model User {
-    id            String    @id @default(cuid())
-    name          String?
-    email         String?   @unique
+    id String @id @default(cuid())
+
+    // General
+    name    String?
+    email   String? @unique
+    phone   String?
+    check_1 Boolean @default(false)
+    check_2 Boolean @default(false)
+
+    // Next-atuh
     emailVerified DateTime?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
+
+    // Relations
+    accounts Account[]
+    sessions Session[]
 }

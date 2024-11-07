@@ -1,8 +1,9 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import EmailProvider from "next-auth/providers/nodemailer"; // was "next-auth/providers/nodemailer/email"
 
 import { db } from "@/server/db";
+import { pandaEmail } from "@/lib/nodemailer/pandaEmail";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -32,16 +33,28 @@ declare module "next-auth" {
  */
 export const authConfig = {
   providers: [
-    DiscordProvider,
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: Number(process.env.EMAIL_SERVER_PORT),
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
+
+      async sendVerificationRequest({ identifier: emailAddress, url }) {
+        const magicLink = await pandaEmail.magicLink(
+          { name: emailAddress, address: emailAddress },
+          url,
+        );
+
+        if (magicLink.rejected.length > 0) {
+          throw new Error("Magic link not sent");
+        }
+      },
+    }),
   ],
   adapter: PrismaAdapter(db),
   callbacks: {
