@@ -12,7 +12,9 @@ export const HeroHighlight = ({
   className?: string;
   containerClassName?: string;
 }) => {
+  // eslint-disable-next-line prefer-const
   let mouseX = useMotionValue(0);
+  // eslint-disable-next-line prefer-const
   let mouseY = useMotionValue(0);
 
   function handleMouseMove({
@@ -21,6 +23,7 @@ export const HeroHighlight = ({
     clientY,
   }: React.MouseEvent<HTMLDivElement>) {
     if (!currentTarget) return;
+    // eslint-disable-next-line prefer-const
     let { left, top } = currentTarget.getBoundingClientRect();
 
     mouseX.set(clientX - left);

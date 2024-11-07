@@ -1,17 +1,21 @@
-import React from "react";
-import { Course, courses } from "@/data/courses";
+import { type Course, courses } from "@/data/courses";
 import Content from "./content";
+import { notFound } from "next/navigation";
 
-export default function VideoPlayerPage({
-  params: { courseSlug },
+export default async function VideoPlayerPage({
+  params,
 }: {
-  params: {
+  params: Promise<{
     courseSlug: string;
-  };
+  }>;
 }) {
-  const courseData = courses.filter(
-    (course) => course.slug === courseSlug,
-  )[0] as Course;
+  const { courseSlug } = await params;
+
+  const courseData = courses.find((course) => course.slug === courseSlug);
+
+  if (!courseData) {
+    notFound();
+  }
 
   return <Content courseData={courseData} />;
 }
