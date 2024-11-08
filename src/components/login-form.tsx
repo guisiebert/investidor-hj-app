@@ -24,14 +24,12 @@ export default function LoginForm() {
   const form = useForm<FormData>({
     resolver: zodResolver(FormSchema),
   });
-  const pathname = usePathname();
 
   async function onSubmit(data: FormData) {
     console.log(data);
-    const currentPath = pathname;
     await signIn("nodemailer", {
       email: data.email,
-      callbackUrl: currentPath,
+      callbackUrl: "/dashboard",
       redirect: false,
     });
   }

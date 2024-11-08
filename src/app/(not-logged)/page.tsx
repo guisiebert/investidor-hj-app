@@ -1,15 +1,16 @@
 import { api } from "@/trpc/server";
 import Image from "next/image";
 import logo from "@/../public/logo-navbar.png";
-import { Button } from "@/components/ui/button";
-import { HeroHighlightDemo } from "@/components/HeroHighlight";
+
+import { Highlight } from "@/components/ui/hero-highlight";
+import LoginForm from "@/components/login-form";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
 
   return (
-    <div>
-      <nav className="-mb-20 flex h-20 items-center justify-between px-16 shadow-sm">
+    <div className="relative">
+      <nav className="absolute flex h-20 items-center justify-between px-16 shadow-sm">
         <div className="flex items-center">
           <Image
             className="h-8 w-auto"
@@ -20,7 +21,17 @@ export default async function Home() {
           />
         </div>
       </nav>
-      <HeroHighlightDemo />
+      <div className="flex h-screen flex-col items-center justify-center bg-gradient-to-tr from-red-950 to-violet-950">
+        <div className="flex max-w-2xl flex-col space-y-8">
+          <h1 className="text-center text-5xl font-semibold">
+            Inicie hoje mesmo sua <br />
+            <Highlight className="text-black dark:text-white">
+              aceleração patrimonial
+            </Highlight>
+          </h1>
+          <LoginForm />
+        </div>
+      </div>
     </div>
   );
 }
