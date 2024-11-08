@@ -1,4 +1,3 @@
-import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { HelloName } from "./dashboard-components/hello-name";
 import { CtaBlockDashboard } from "./dashboard-components/cta-block-dashboard";
@@ -6,15 +5,17 @@ import { IgBlockDashboard } from "./dashboard-components/ig-block-dashboard";
 import { BrandingBlock } from "./dashboard-components/branding-block";
 import { CsfBlockDashboard } from "./dashboard-components/jornada-csf-block";
 import { AceleraBlockDashboard } from "./dashboard-components/jornada-acelera-block";
+import { auth } from "@/server/auth";
 
-export default function BentoGridDemo() {
+export default async function BentoGridDemo() {
+  const session = await auth();
   return (
     <div className="flex flex-col gap-4">
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-3"></div>
       <BentoGrid className="mx-auto max-w-4xl">
         <BrandingBlock />
 
-        <HelloName />
+        <HelloName userName={session?.user.name} />
 
         <BentoGridItem
           header={<CsfBlockDashboard />}

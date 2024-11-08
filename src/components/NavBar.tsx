@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { links } from "@/data/links";
+import { LogoutButton } from "./logout-button";
 export default function NavBar() {
   return (
     <nav className="mx-auto my-8 flex h-10 max-w-6xl items-center justify-between">
@@ -36,7 +37,7 @@ export default function NavBar() {
           </Button>
         </Link>
         <UserCircle2 />
-        <LogOutIcon />
+        <LogoutButton />
       </div>
     </nav>
   );

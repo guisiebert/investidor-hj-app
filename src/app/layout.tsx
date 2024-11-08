@@ -4,6 +4,8 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import { auth } from "@/server/auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Investidor HJ",
@@ -11,9 +13,11 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const session = await auth();
+
   return (
     <html lang="en" className={`dark ${GeistSans.variable}`}>
       <body>

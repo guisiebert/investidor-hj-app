@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import OutlineButton from "@/components/ui/outline-button";
+import LoginForm from "./login-form";
 
 export function HeroHighlightDemo() {
   return (
@@ -26,7 +26,7 @@ export function HeroHighlightDemo() {
           aceleração patrimonial
         </Highlight>
       </motion.h1>
-      <OutlineButton text="Acessar" url="/dashboard" />
+      <LoginForm />
     </HeroHighlight>
   );
 }

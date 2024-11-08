@@ -9,14 +9,9 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
 
-  if (!session?.user) {
-    redirect("/");
+  if (session?.user) {
+    redirect("/dashboard");
   }
-  return (
-    <>
-      <NavBar />
-      {children}
-      <div className="h-10" />
-    </>
-  );
+
+  return <>{children}</>;
 }

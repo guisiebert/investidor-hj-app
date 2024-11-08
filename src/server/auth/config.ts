@@ -65,5 +65,17 @@ export const authConfig = {
         id: user.id,
       },
     }),
+
+    // ADDED BY GUI
+    // async signIn() {
+    //   return true;
+    // },
   },
+  // ADDED BY GUI
+  // pages: {
+  //   // signIn: "/auth",
+  //   // signIn: "/404",
+  //   // verifyRequest: "/auth/verify-request",
+  //   verifyRequest: "/",
+  // },
 } satisfies NextAuthConfig;

@@ -1,8 +1,16 @@
-export function HelloName() {
+import { extractAndFormatFirstName } from "@/lib/normalize-name";
+
+export function HelloName({
+  userName,
+}: {
+  userName: string | null | undefined;
+}) {
   return (
-    <div className="h-32 md:col-span-4 bg-gradient-to-tr w-full from-violet-800 to-violet-500 flex flex-col justify-center rounded-xl p-6 text-gray-200">
-      <h1 className=" font-semibold text-3xl">Olá, John Doe</h1>
+    <div className="flex h-32 w-full flex-col justify-center rounded-xl bg-gradient-to-tr from-violet-800 to-violet-500 p-6 text-gray-200 md:col-span-4">
+      <h1 className="text-3xl font-semibold">
+        Olá, {extractAndFormatFirstName(userName)}
+      </h1>
       <p>Bem-vindo à plataforma Investidor HJ</p>
     </div>
-  )
+  );
 }

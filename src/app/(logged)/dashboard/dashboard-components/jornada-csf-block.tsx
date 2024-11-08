@@ -14,7 +14,7 @@ export function CsfBlockDashboard() {
         objectFit="cover"
         alt=""
         src={"/thumbnails/csf-thumb.jpg"}
-        className="z-0 transition-opacity duration-300 group-hover:opacity-20"
+        className="z-0 object-fill transition-opacity duration-300 group-hover:opacity-20"
         quality={90}
       />
       <div className="z-10 flex w-full items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
