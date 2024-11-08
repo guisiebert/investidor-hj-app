@@ -36,7 +36,7 @@ export default function MagicLinkEmail({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
           <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-solid border-[#eee] bg-slate-100 p-[20px]">
-            <Section className="mt-[32px]">
+            {/* <Section className="mt-[32px]">
               <Img
                 src={"https://investidorhj.vercel.app/email-header.png"}
                 width="auto"
@@ -44,7 +44,7 @@ export default function MagicLinkEmail({
                 alt="Investidor HJ logo"
                 className="mx-auto my-0"
               />
-            </Section>
+            </Section> */}
             <Heading className="mx-0 my-[30px] p-0 text-center text-[24px] font-normal text-black">
               Seu link para <strong>login</strong> no{" "}
               <strong>Investidor HJ</strong>
