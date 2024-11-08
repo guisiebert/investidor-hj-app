@@ -11,8 +11,7 @@ export default async function BentoGridDemo() {
   const session = await auth();
   return (
     <div className="flex flex-col gap-4">
-      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-3"></div>
-      <BentoGrid className="mx-auto max-w-4xl">
+      <BentoGrid className="mx-auto max-w-4xl px-4">
         <BrandingBlock />
 
         <HelloName userName={session?.user.name} />
@@ -23,14 +22,14 @@ export default async function BentoGridDemo() {
           description={
             "Descubra os segredos para driblar os altos custos do financiamento."
           }
-          className="md:col-span-4"
+          className="sm:col-span-4 md:col-span-4"
         />
 
         <BentoGridItem
           header={<AceleraBlockDashboard />}
           title={"Aceleração Patrimonial"}
           description="EM BREVE: Jornada SpeedUP - Aceleração Patrimonial"
-          className="md:col-span-2"
+          className="opacity-40 sm:col-span-2 md:col-span-2"
         />
 
         <IgBlockDashboard />

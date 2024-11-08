@@ -40,7 +40,7 @@ export default function LoginForm() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex w-full justify-center gap-2"
+            className="flex w-full flex-col justify-center gap-2 md:flex-row"
           >
             <FormField
               control={form.control}
@@ -50,7 +50,7 @@ export default function LoginForm() {
                   <FormControl>
                     <Input
                       placeholder="Utilize seu email"
-                      className="h-12 min-w-96 border-gray-600 bg-black/50 px-6 font-mono text-gray-400"
+                      className="h-12 min-w-96 border-gray-600 bg-black/50 px-6 text-center font-mono text-gray-400 md:text-left"
                       {...field}
                     />
                   </FormControl>
@@ -75,14 +75,13 @@ export default function LoginForm() {
             <p>Aguarde...</p>
           </div>
         )}
-
-        {form.formState.isSubmitSuccessful && (
-          <div className="flex items-center justify-center gap-2 rounded-lg border-[1.5px] bg-gray-900 p-3 text-sm text-gray-400">
-            <CheckCircle2 />
-            <p>Sucesso! Link de login enviado ao seu email.</p>
-          </div>
-        )}
       </div>
+      {form.formState.isSubmitSuccessful && (
+        <div className="mx-auto flex w-full max-w-xl items-center justify-center gap-2 rounded-lg border-[1.5px] bg-gray-900 p-3 text-sm text-gray-400">
+          <CheckCircle2 />
+          <p>Sucesso! Link de login enviado ao seu email.</p>
+        </div>
+      )}
     </>
   );
 }

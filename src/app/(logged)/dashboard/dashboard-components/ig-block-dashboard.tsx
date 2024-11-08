@@ -7,7 +7,7 @@ import { links } from "@/data/links";
 
 export function IgBlockDashboard() {
   return (
-    <Card className="group relative flex flex-col items-center justify-center overflow-hidden md:col-span-2">
+    <Card className="group relative hidden flex-col items-center justify-center overflow-hidden sm:col-span-2 sm:flex">
       <Link
         href={links.ig_post}
         target="_blank"

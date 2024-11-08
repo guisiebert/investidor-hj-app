@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <div className="relative">
-      <nav className="absolute flex h-20 items-center justify-between px-16 shadow-sm">
+      <nav className="absolute flex h-20 w-full items-center justify-center px-16 shadow-sm md:justify-between">
         <div className="flex items-center">
           <Image
             className="h-8 w-auto"
@@ -23,8 +23,8 @@ export default async function Home() {
         </div>
       </nav>
       <div className="flex h-screen flex-col items-center justify-center">
-        <div className="flex max-w-2xl flex-col space-y-4">
-          <h1 className="text-center text-5xl font-semibold leading-normal">
+        <div className="flex max-w-2xl flex-col space-y-6">
+          <h1 className="text-center text-3xl font-semibold leading-normal md:text-5xl">
             Inicie hoje sua jornada para <br />
             <Highlight className="text-black dark:text-white">
               melhores

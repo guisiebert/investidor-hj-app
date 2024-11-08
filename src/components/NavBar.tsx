@@ -6,8 +6,8 @@ import { links } from "@/data/links";
 import { LogoutButton } from "./logout-button";
 export default function NavBar() {
   return (
-    <nav className="mx-auto my-8 flex h-10 max-w-6xl items-center justify-between">
-      <div className="flex w-1/3 gap-2 font-semibold text-gray-300">
+    <nav className="mx-auto my-8 flex h-10 max-w-6xl items-center justify-between px-4">
+      <div className="hidden w-1/3 gap-2 font-semibold text-gray-300 lg:flex">
         <Link href={"/"}>
           <Button variant={"link"}>Início</Button>
         </Link>
@@ -36,7 +36,6 @@ export default function NavBar() {
             Invista hoje
           </Button>
         </Link>
-        <UserCircle2 />
         <LogoutButton />
       </div>
     </nav>
