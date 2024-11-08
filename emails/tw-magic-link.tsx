@@ -38,8 +38,8 @@ export default function MagicLinkEmail({
           <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-solid border-[#eee] bg-slate-100 p-[20px]">
             <Section className="mt-[32px]">
               <Img
-                src={"https://investidor-hj.vercel.app/email-header.png"}
-                width="170"
+                src={"https://investidorhj.vercel.app/email-header.png"}
+                width="auto"
                 height="50"
                 alt="Investidor HJ logo"
                 className="mx-auto my-0"
@@ -52,7 +52,7 @@ export default function MagicLinkEmail({
             <Text className="text-[14px] leading-[24px] text-black">Olá,</Text>
             <Text className="text-[14px] leading-[24px] text-black">
               Aqui está o link que você solicitou para acessar a plataforma do
-              <strong>Investidor HJ</strong> como {user_email}.
+              <strong> Investidor HJ</strong> como {user_email}.
             </Text>
             <Section className="mb-[32px] mt-[32px] text-center">
               <Button

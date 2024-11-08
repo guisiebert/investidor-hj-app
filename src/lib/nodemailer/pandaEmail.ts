@@ -17,7 +17,7 @@ export const pandaEmail = {
   // Magic Link
   async magicLink(recipient: Recipient, login_link: string) {
     const mail = await sendEmail({
-      subject: "Seu login no GoPanda",
+      subject: "Seu login no InvestidorHJ",
       html: await render(
         // GUI: There was no "await" before
         MagicLinkEmail({

@@ -32,15 +32,6 @@ export const sendEmail = async (data: EmailPayload) => {
   const mail = await transporter.sendMail({
     from: { address: env.EMAIL_FROM, name: env.EMAIL_FROM_NAME },
     ...data,
-
-    // Send a BCC of all emails (except magiclinks)
-    bcc:
-      data.subject == "Seu login no GoPanda"
-        ? undefined
-        : {
-            address: "gopandadev@gmail.com",
-            name: "Go Panda Dev",
-          },
   });
 
   if (mail.accepted.length < 1) {
