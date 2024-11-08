@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { LessonDescription } from "@/components/LessonDescription";
@@ -11,6 +11,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Content({ courseData }: { courseData: Course }) {
   const [currentLesson, setCurrentLesson] = useState(0);
+
+  useEffect(() => {
+    // Scroll to top whenever currentLesson changes
+    console.log("mudou");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentLesson]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
