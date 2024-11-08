@@ -1,16 +1,16 @@
-import { Lesson } from "@/data/courses"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Lesson } from "@/data/courses";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 export function LessonDescription({
   lessonData,
   lessonNumber,
 }: {
-  lessonData: Lesson
-  lessonNumber: number
+  lessonData: Lesson;
+  lessonNumber: number;
 }) {
   return (
-    <Card className="p-4 max-w-[500px]">
-      <CardContent className="mt-2 -mb-4 justify-center flex flex-col h-full">
+    <Card className="p-4">
+      <CardContent className="-mb-4 mt-2 flex h-full flex-col justify-center">
         <CardTitle className="mb-2 text-gray-400">
           Aula 0{lessonNumber + 1}
         </CardTitle>
@@ -18,5 +18,5 @@ export function LessonDescription({
         <p className="text-muted-foreground">{lessonData.description}</p>
       </CardContent>
     </Card>
-  )
+  );
 }
