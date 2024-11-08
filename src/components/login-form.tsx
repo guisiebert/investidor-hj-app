@@ -36,11 +36,11 @@ export default function LoginForm() {
 
   return (
     <>
-      <div className="flex w-full flex-col justify-center space-y-3">
+      <div className="flex w-full flex-col justify-center">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex w-full gap-2"
+            className="flex w-full justify-center gap-2"
           >
             <FormField
               control={form.control}
@@ -50,7 +50,7 @@ export default function LoginForm() {
                   <FormControl>
                     <Input
                       placeholder="Utilize seu email"
-                      className="h-12 min-w-96 border-gray-600 bg-black px-6 font-mono text-gray-400"
+                      className="h-12 min-w-96 border-gray-600 bg-black/50 px-6 font-mono text-gray-400"
                       {...field}
                     />
                   </FormControl>
@@ -62,7 +62,7 @@ export default function LoginForm() {
               disabled={
                 form.formState.isLoading || form.formState.isSubmitSuccessful
               }
-              className="ml-auto h-12 rounded-lg border border-violet-500 bg-black from-violet-500 to-purple-500 px-8 py-2 text-white hover:bg-gradient-to-tr"
+              className="h-12 rounded-lg border border-violet-500 bg-black/50 from-violet-500/70 to-purple-500/70 px-8 py-2 text-white hover:bg-gradient-to-tr"
             >
               Enviar link de login
             </button>

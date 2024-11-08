@@ -4,6 +4,7 @@ import logo from "@/../public/logo-navbar.png";
 
 import { Highlight } from "@/components/ui/hero-highlight";
 import LoginForm from "@/components/login-form";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -21,17 +22,19 @@ export default async function Home() {
           />
         </div>
       </nav>
-      <div className="flex h-screen flex-col items-center justify-center bg-gradient-to-tr from-red-950 to-violet-950">
-        <div className="flex max-w-2xl flex-col space-y-8">
-          <h1 className="text-center text-5xl font-semibold">
-            Inicie hoje mesmo sua <br />
+      <div className="flex h-screen flex-col items-center justify-center">
+        <div className="flex max-w-2xl flex-col space-y-4">
+          <h1 className="text-center text-5xl font-semibold leading-normal">
+            Inicie hoje sua jornada para <br />
             <Highlight className="text-black dark:text-white">
-              aceleração patrimonial
+              melhores
             </Highlight>
+            investimentos
           </h1>
           <LoginForm />
         </div>
       </div>
+      <BackgroundBeams className="-z-10" />
     </div>
   );
 }
