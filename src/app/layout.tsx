@@ -5,7 +5,7 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { auth } from "@/server/auth";
-import { redirect } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Investidor HJ",
@@ -21,6 +21,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`dark ${GeistSans.variable}`}>
       <body>
+        <Analytics />
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
