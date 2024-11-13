@@ -1,4 +1,3 @@
-import { api } from "@/trpc/server";
 import Image from "next/image";
 import logo from "@/../public/logo-navbar.png";
 
@@ -7,8 +6,6 @@ import LoginForm from "@/components/login-form";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
   return (
     <div className="relative">
       <nav className="absolute flex h-20 w-full items-center justify-center px-16 shadow-sm md:justify-between">
